@@ -44,5 +44,5 @@ wildcard = st.text_input(label='Input the wildcard')
 
 if st.button(label='Search'):
     result = search_words(pattern, wildcard)
-    st.dataframe(result)
+    st.table(result)
 
