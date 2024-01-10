@@ -23,7 +23,7 @@ def search_words(pattern: str, wildcard: str) -> list:
     new_pattern = ',' + new_pattern + ','
     pt = re.compile(new_pattern)
 
-    result = pt.findall(word_list)
+    result = pt.findall(word_list, re.IGNORECASE)
     result = list(map(clean, result))
 
     if wildcard is not None and len(wildcard) > 0:
