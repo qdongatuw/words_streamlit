@@ -16,7 +16,9 @@ def check_apperance_times(string: str, times: dict):
 
 
 def search_words(pattern: str, wildcard: str) -> list:
-    if wildcard is not None and len(wildcard) > 0:
+    pattern = pattern.lower()
+    wildcard = wildcard.lower()
+    if wildcard != "":
         new_pattern = pattern.replace('?', f'[{wildcard}]')
     else:
         new_pattern = pattern.replace('?', '\w')
@@ -25,14 +27,14 @@ def search_words(pattern: str, wildcard: str) -> list:
 
     result = pt.findall(word_list, re.IGNORECASE)
     result = list(map(clean, result))
-
     if wildcard is not None and len(wildcard) > 0:
         letter_times = dict()
         for i in wildcard:
             letter_times[i] = wildcard.count(i)
         filtered_result = [i for i in result if check_apperance_times(i, letter_times)]
-    print(filtered_result)
-    return(filtered_result)
+        return filtered_result
+
+    return result
 
 
 st.set_page_config(page_title="Words")
