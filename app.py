@@ -16,8 +16,8 @@ def check_apperance_times(string: str, times: dict):
 
 
 def search_words(pattern: str, wildcard: str) -> list:
-    pattern = pattern.lower()
-    wildcard = wildcard.lower()
+    pattern = pattern.lower().strip()
+    wildcard = wildcard.lower().strip()
     if wildcard != "":
         new_pattern = pattern.replace('?', f'[{wildcard}]')
     else:
