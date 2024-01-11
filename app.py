@@ -23,9 +23,9 @@ def search_words(pattern: str, wildcard: str) -> list:
     else:
         new_pattern = pattern.replace('?', '\w')
     new_pattern = ',' + new_pattern + ','
-    pt = re.compile(new_pattern)
+    pt = re.compile(new_pattern, re.IGNORECASE)
 
-    result = pt.findall(word_list, re.IGNORECASE)
+    result = pt.findall(word_list)
     result = list(map(clean, result))
     if wildcard is not None and len(wildcard) > 0:
         letter_times = dict()
