@@ -4,12 +4,12 @@ from words import word_list
 
 
 def clean(old: str):
-    return old[1:-1].lower()
+    return old[1:-1]
 
 
 def check_apperance_times(string: str, times: dict):
     for i in times:
-        count = string.count(i)
+        count = string.lower().count(i)
         if count > times[i]:
             return False
     return True
