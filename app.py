@@ -39,8 +39,8 @@ def search_words(pattern: str, wildcard: str) -> list:
 
 st.set_page_config(page_title="Words")
 
-pattern = st.text_input(label='Input the pattern, using ? for unkowns letters')
-wildcard = st.text_input(label='Input the wildcard')
+pattern = st.text_input(label='Input the pattern, ? for unkowns letters. Example: a?b??c')
+wildcard = st.text_input(label='Input the possible letters for ?. Blank means any letters could be used.')
 
 if st.button(label='Search'):
     result = search_words(pattern, wildcard)
