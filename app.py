@@ -4,7 +4,7 @@ from words import word_list
 
 
 def clean(old: str):
-    return old[1:-1]
+    return old[1:-1].lower()
 
 
 def check_apperance_times(string: str, times: dict):
